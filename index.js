@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 
 const Manager = require("./lib/Manager");
 
-const run = async () => {
+const managerInfo = async () => {
   const { name, id, email, office } = await inquirer.prompt([
     { name: "name", message: "What is the team managers name?" },
     { name: "id", message: "What is the team managers ID number?" },
@@ -15,4 +15,4 @@ const run = async () => {
   console.log(manager);
 };
 
-run();
+managerInfo();
