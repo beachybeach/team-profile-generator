@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 
 const Manager = require("./lib/Manager");
+const Intern = require("./lib/Intern");
 
 const createEngineer = () => {
   // return  { name, id, email, github }
@@ -14,7 +15,7 @@ const createEngineer = () => {
   }
 };
 const createIntern = async () => {
-  const { name, id, email, school, team } = await inquirer.prompt([
+  const { newMember, name, id, email, school } = await inquirer.prompt([
     { name: "name", message: "What is the team members name?" },
     { name: "id", message: "What is the team members ID number?" },
     { name: "email", message: "What is the team member email?" },
@@ -22,7 +23,7 @@ const createIntern = async () => {
     {
       type: "list",
       message: "What type of team member would you like to add?",
-      name: "team",
+      name: "newMember",
       choices: ["Engineer", "Intern", "I don't want to add any more members."],
     },
     // return  { name, id, email, school }
@@ -31,17 +32,17 @@ const createIntern = async () => {
 
   let member;
 
-  if (team === "Intern") {
+  if (newMember === "Intern") {
     member = await createIntern();
-  } else if (team === "Engineer") {
+  } else if (newMember === "Engineer") {
     // run createEngineer
   } else {
-    return member;
+    return new Intern(name, id, email, school);
   }
 };
 
 const createTeam = async () => {
-  const { name, id, email, office, team } = await inquirer.prompt([
+  const { name, id, email, office, newMember } = await inquirer.prompt([
     { name: "name", message: "What is the team managers name?" },
     { name: "id", message: "What is the team managers ID number?" },
     { name: "email", message: "What is the team managers email?" },
@@ -49,26 +50,26 @@ const createTeam = async () => {
     {
       type: "list",
       message: "What type of team member would you like to add?",
-      name: "team",
+      name: "newMember",
       choices: ["Engineer", "Intern", "I don't want to add any more members."],
     },
   ]);
 
   const manager = new Manager(name, id, email, office);
 
-  let member;
+  let members = [];
 
-  if (team === "Intern") {
-    member = await createIntern();
-  } else if (team === "Engineer") {
+  if (newMember === "Intern") {
+    members.push(await createIntern());
+  } else if (newMember === "Engineer") {
     // run createEngineer
   } else {
     // create html file
   }
-  console.log(team);
-  console.log(manager);
-  console.log(member);
 
+  const team = [manager, ...members];
+
+  console.log(team);
   // return html file
 };
 
