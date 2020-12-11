@@ -3,6 +3,7 @@ const Employee = require("../lib/Employee");
 const Manager = require("../lib/Manager");
 const Intern = require("../lib/Intern");
 const Engineer = require("../lib/Engineer");
+const { createTeam } = require("../lib/Team");
 
 // TODO: Make Email & Github a link
 
@@ -17,7 +18,7 @@ const buildPage = (teamMembers) => {
       <p>${email}</p>
       <p>${member}</p>
       <p>${extra}</p>
-    </div>;
+    </div>
     `;
   };
 
@@ -26,6 +27,12 @@ const buildPage = (teamMembers) => {
     `🚀 ~ file: template.js ~ line 22 ~ buildPage ~ membersHTML`,
     membersHTML
   );
+
+  const file = membersHTML.join("");
+
+  fs.writeFile("index.html", file, (err) => {
+    if (err) throw err;
+  });
 };
 
 // `<!DOCTYPE html>
