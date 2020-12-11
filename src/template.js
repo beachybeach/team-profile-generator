@@ -8,35 +8,44 @@ const Engineer = require("../lib/Engineer");
 
 const buildPage = (teamMembers) => {
   //CONSTRUCTS THE HTML
-  const createMemberHTML = ({ name, id, email, member, ...extra }) => `
-  <div>
-    <h2>${name}</h2>
-    <p>${id}</p>
-    <p>${email}</p>
-    <p>${member}</p>
-    <p>${extra}</p>
-  </div>;
-  `;
+  const createMemberHTML = ({ name, id, email, member, ...rest }) => {
+    const extra = Object.values(rest);
+    return `
+    <div>
+      <h2>${name}</h2>
+      <p>${id}</p>
+      <p>${email}</p>
+      <p>${member}</p>
+      <p>${extra}</p>
+    </div>;
+    `;
+  };
 
   const membersHTML = teamMembers.map((member) => createMemberHTML(member));
+  console.log(
+    `🚀 ~ file: template.js ~ line 22 ~ buildPage ~ membersHTML`,
+    membersHTML
+  );
 };
 
-`<!DOCTYPE html>
-<html>
+// `<!DOCTYPE html>
+// <html>
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+// <head>
+//   <meta charset="utf-8">
+//   <title></title>
+//   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="css/style.css" rel="stylesheet">
-</head>
+//   <link href="css/style.css" rel="stylesheet">
+// </head>
 
-<body>
+// <body>
 
-  <p></p>
+//   <p></p>
 
-  <script src="js/script.js"></script>
-</body>
+//   <script src="js/script.js"></script>
+// </body>
 
-</html>`;
+// </html>`;
+
+module.exports = { buildPage };
