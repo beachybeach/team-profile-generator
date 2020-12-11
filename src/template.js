@@ -3,6 +3,6 @@ const Manager = require("../lib/Manager");
 const Intern = require("../lib/Intern");
 const Engineer = require("../lib/Engineer");
 
-const buildPage = () => {
+const buildPage = (teamMembers) => {
   //CONSTRUCTS THE HTML
 };

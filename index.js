@@ -1,5 +1,2 @@
-const inquirer = require('inquirer');
-const team = require("./lib/Team");
-
-
-createTeam();
+const inquirer = require("inquirer");
+const team = require("./lib/Team.js");
