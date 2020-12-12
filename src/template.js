@@ -12,47 +12,48 @@ const buildPage = (teamMembers) => {
   const createMemberHTML = ({ name, id, email, member, ...rest }) => {
     const extra = Object.values(rest);
     return `
-    <div>
-      <h2>${name}</h2>
-      <p>${id}</p>
-      <p>${email}</p>
-      <p>${member}</p>
-      <p>${extra}</p>
-    </div>
+    <div class="card col text-center" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">${name}</h5>
+    <p>${id}</p>
+      <p class="card-text"><a href="mailto:${email}">${email}</a></p>
+      <p class="card-text">${member}</p>
+      <p class="card-text">${extra}</p>
+      </div>
+     </div>
     `;
   };
 
   const membersHTML = teamMembers.map((member) => createMemberHTML(member));
-  console.log(
-    `🚀 ~ file: template.js ~ line 22 ~ buildPage ~ membersHTML`,
-    membersHTML
-  );
 
-  const file = membersHTML.join("");
+  const file = `<!DOCTYPE html>
+  <html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="./src/style.css" rel="stylesheet" />
+  </head>
+  
+  <body>
+    <header>
+    <h1> My Team </h1>
+    </header>
+ <div class = "container">
+    <div class="row align-items-center">
+    ${membersHTML.join("")}
+  </div>
+  </div>
+    <script src="js/script.js"></script>
+  </body>
+  
+  </html>`;
 
   fs.writeFile("index.html", file, (err) => {
     if (err) throw err;
   });
 };
-
-// `<!DOCTYPE html>
-// <html>
-
-// <head>
-//   <meta charset="utf-8">
-//   <title></title>
-//   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-//   <link href="css/style.css" rel="stylesheet">
-// </head>
-
-// <body>
-
-//   <p></p>
-
-//   <script src="js/script.js"></script>
-// </body>
-
-// </html>`;
 
 module.exports = { buildPage };
