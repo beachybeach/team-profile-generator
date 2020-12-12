@@ -14,10 +14,10 @@ const buildPage = (teamMembers) => {
     return `
     <div class="card col text-center" style="width: 18rem;">
     <div class="card-body">
-    <h5 class="card-title">${name}</h5>
-    <p>${id}</p>
-      <p class="card-text"><a href="mailto:${email}">${email}</a></p>
-      <p class="card-text">${member}</p>
+    <h5 class="card-title">Name: ${name}</h5>
+    <p>ID Number: ${id}</p>
+      <p class="card-text"><a href="mailto:${email}">Email: ${email}</a></p>
+      <p class="card-text">Position: ${member}</p>
       <p class="card-text">${extra}</p>
       </div>
      </div>
@@ -33,8 +33,10 @@ const buildPage = (teamMembers) => {
     <meta charset="utf-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/Minty/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="./src/style.css" rel="stylesheet" />
+    
   </head>
   
   <body>
