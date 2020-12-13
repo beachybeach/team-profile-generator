@@ -6,6 +6,10 @@
 
 <img width="500" src="./src/images/screenshot.png">
 
+## Walkthrough video link
+
+https://youtu.be/QLzwYefGA78
+
 # Uses
 
 To be able to use the command line to generate your team roster by answering the prompted questions reagrding team information.
