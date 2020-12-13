@@ -1,4 +1,4 @@
-# Team Profile Generatore
+# Team Profile Generator
 
 ## [Application Link](https://beachybeach.github.io/team-profile-generator/)
 
@@ -6,17 +6,16 @@
 
 <img width="500" src="./src/images/screenshot.png">
 
-This "coding quiz" is a quiz that is DEFINITELY about coding related questions and totally not about horror movies.
-
-This is a basic quiz with one question, four answers following, and only 60 seconds to complete. Any incorrect answers will then deduct 5 seconds from the remaining time. Your final score is then shown on the screen and put into local storage so you can see how much smarter you are than your peers.
-
 # Uses
 
-To have a great time and buff up on your murder movie...I mean <strong><em>coding knowledge.</em></strong>
+To be able to use the command line to generate your team roster by answering the prompted questions reagrding team information.
 
 # Built With
 
 - HTML
 - CSS
 - Javascript
-- Blood, sweat, tears, and <em>lots,</em> more blood.
+- Node.js
+- Bootstrap
+- Jest
+- Blood, sweat, tears, lots of tears...
